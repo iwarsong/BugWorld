@@ -3,4 +3,4 @@
 /var/logs/*
 composer.lock
 .idea
-/app/config/paramaters.php
+/config/paramaters.php
