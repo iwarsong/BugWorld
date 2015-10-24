@@ -7,8 +7,42 @@
     overflow: scroll;
 }
 
-.bug-grid {
-    height: 250px;
+.issue-grid {
+    /*height: 250px;*/
+    position: relative;
+}
+
+.issue-grid .douser-avatar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.issue-grid .douser-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.issue-grid .issue-image {
+    /*height: 250px;*/
+}
+
+.issue-grid .mask {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 60px;
+    background: #fff;
+    opacity: 0.75;
+    visibility: hidden;
+}
+
+.issue-grid:hover .mask {
+    visibility: visible;
+    text-align: center;
+
 }
 
 .userlist-flotbar {
