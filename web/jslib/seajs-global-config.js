@@ -10,6 +10,10 @@ seajs.config({
 		'arale-validator': 'arale-validator/0.10.0/index',
 		'keypress': 'keypress/2.1.3/keypress',
 		'paste.js': 'paste.js/1.9.0/paste.js',
+		'arale-dnd' : 'arale/1.0.0/dnd',
+		'arale-base' : 'arale/1.0.0/base',
+		'arale-class' : 'arale/1.0.0/class',
+		'arale-events' : 'arale/1.0.0/events',
 	},
 
 	// 变量配置

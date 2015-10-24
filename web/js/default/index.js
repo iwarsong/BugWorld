@@ -5,6 +5,11 @@ define(function(require, exports, module) {
     require('paste.js');
     var Keypress = require('keypress');
 
+    var Dnd = require('arale-dnd');
+
+    require('./userlist-floatbar.js');
+    require('./main.js');
+
     exports.run = function() {
 
         // $('*').pastableNonInputable();
