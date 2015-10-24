@@ -6,6 +6,11 @@ namespace QuickBug\Service;
 
 class IssueService extends BaseService
 {
+    public function addIssue($issue)
+    {
+        return $this->getIssueDao()->addIssue($issue);
+    }
+
     public function getIssue($id)
     {
         return $this->getIssueDao()->getIssue($id);
