@@ -1,17 +1,24 @@
-<div class="col-md-3">
-  <div class="thumbnail issue-grid" >
-    <img src="/banner.jpg" class="issue-image" data-toggle="modal" data-target="#issue-show-modal">
-    <div class="douser-avatar">
-      <img src="/avatar.png" > 
-    </div>
-
-    <div class="mask">
-      <button class="btn btn-primary">领</button>
-{#       <button class="btn btn-primary">修</button>
-      <button class="btn btn-primary">已修</button>
-      <button class="btn btn-primary">验收</button>
-      <button class="btn btn-primary">已验</button> #}
+{% for issue in issues %}
+  <div class="col-md-3">
+    <div class="thumbnail issue-grid " data-id="{{ issue.id }}">
+      <img src="/banner.jpg" class="issue-image" >
+      <div class="douser-avatar">
+        <img src="/avatar.png">
+      </div>
+      <div class="mask">
+        {% set issueStatus = issue.status %}
+        {% if issueStatus == 'todo' %}
+          <button class="btn btn-primary issue-btn">领</button>
+        {% elseif issueStatus == 'doing' %}
+          <button class="btn btn-primary">修</button>
+        {% elseif issueStatus == 'done' %}
+          <button class="btn btn-primary">已修</button>
+        {% elseif issueStatus == 'checking' %}
+          <button class="btn btn-primary">验收</button>
+        {% elseif issueStatus == 'finished' %}
+          <button class="btn btn-primary">已验</button>
+        {% endif %}
+      </div>
     </div>
   </div>
-
-</div>
+{% endfor %}
