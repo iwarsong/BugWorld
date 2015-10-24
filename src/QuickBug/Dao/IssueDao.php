@@ -31,6 +31,12 @@ class IssueDao extends BaseDao
         return $builder->execute()->fetchAll() ? : array();
     }
 
+    public function bindUserToIssue($userId,$issueId)
+    {
+        $this->db()->update($this->table, array('doUserId'=>$userId), array('id' => $issueId));
+        return $this->searchIssues(array('id'=>$issueId),array('id','DESC'),0,10);
+    }
+
     protected function _createSearchQueryBuilder($conditions)
     {
         $builder = $this->createDynamicQueryBuilder($conditions)

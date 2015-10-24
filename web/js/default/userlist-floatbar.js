@@ -6,9 +6,9 @@ define(function(require, exports, module) {
 
 	    $(proxy).on('load', function() {
 	        dnd = new Dnd('.userlist-flotbar .userlist-user ', {
-	            drops: $('.bug-grids .bug-grid'),
+	            drops: $('.bug-grids .issue-grid'),
 	            proxy: proxy,
-	            visible: true, 
+	            visible: false, 
 	            revert: true
 	        });
 
@@ -17,22 +17,22 @@ define(function(require, exports, module) {
 	            dataTransfer.data = dnd.element;
 	        })
 	        dnd.on('dragenter', function(proxy, drop){
-	            drop.addClass('') ;
+	            // drop.addClass('over') ;
 	        })
 	        dnd.on('dragleave', function(proxy, drop){
-	            drop.removeClass('over') ;
+	            // drop.removeClass('over') ;
 	        })
 	        dnd.on('drop', function(dataTransfer, proxy, drop){
 	            // alert(dataTransfer.data);	           
 	        })
 	        dnd.on('dragend', function(element, drop){
-	        	alert(element.data('id'));
 	        	$.ajax({
 	        		type:'POST',
 	        		url:element.data('url'),
-	        		data:{userId:element.data('id'),issueId:drop.data('id') },
-	        		success: function(){
-
+	        		data:{userId:element.data('id'),issueId:drop.data('id')},
+	        		success: function(src){
+	        			console.log(src);
+	        			element.attr('src') = src;
 	        		},
   					dataType: "json"
 	        	});

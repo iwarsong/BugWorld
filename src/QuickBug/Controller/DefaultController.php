@@ -44,6 +44,19 @@ class DefaultController
         ));
     }
 
+    public function bindIssueAction(Application $app, Request $request)
+    {
+        var_dump($request->query->all());
+        $issue = $this->getIssueService()->bindUserToIssue($userId,$issueId);
+        return $app->json('https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1150491410,2439285582&fm=58');
+    }
+
+    // public function showUsers(Application $app, Request $request)
+    // {
+    //     $users = $this->getUserService()->findAllUsers();
+    //     return $app['twig']->r
+    // }
+
     private function processerSearchData($searchData){
         $conditions = array();
 

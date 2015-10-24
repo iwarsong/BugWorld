@@ -5,9 +5,9 @@ return [
         'driver' => 'pdo_mysql',
         'host' => '127.0.0.1',
         'port' => 3306,
-        'name' => 'bug-world',
+        'name' => 'mailant',
         'user' => 'root',
-        'password' => '',
+        'password' => 'root',
         'charset' => 'utf8',
     ]
 ];
