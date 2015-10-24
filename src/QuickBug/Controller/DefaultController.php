@@ -54,8 +54,15 @@ class DefaultController
 
     public function bindIssueAction(Application $app, Request $request)
     {
-        var_dump($request->query->all());
-        $issue = $this->getIssueService()->bindUserToIssue($userId,$issueId);
+        $data = $request->request->all();
+
+        $userId = $data['userId'];
+        $issueId = $data['issueId'];
+        if(!$this->getIssueService()->bindUserToIssue($userId,$issueId)){
+            return $app->json(false);
+        };
+
+        $user = $this->getUserService()->getUser($userId);
         return $app->json('https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1150491410,2439285582&fm=58');
     }
 
@@ -90,6 +97,11 @@ class DefaultController
     protected function getIssueService()
     {
         return $this->kernel()->service('IssueService');
+    }
+
+    protected function getUserService()
+    {
+        return $this->kernel()->service('UserService');
     }
 
     protected function kernel()

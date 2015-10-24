@@ -31,8 +31,8 @@ define(function(require, exports, module) {
 	        		url:element.data('url'),
 	        		data:{userId:element.data('id'),issueId:drop.data('id')},
 	        		success: function(src){
-	        			console.log(src);
-	        			element.attr('src') = src;
+	        			var html = "\<img src=\"" +src +  "\">";
+						drop.find('.douser-avatar').html(html);
 	        		},
   					dataType: "json"
 	        	});

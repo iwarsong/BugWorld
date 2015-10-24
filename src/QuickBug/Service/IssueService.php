@@ -24,7 +24,8 @@ class IssueService extends BaseService
 
     public function bindUserToIssue($userId,$IssueId)
     {
-        return $this->getIssueDao()->bindUserToTssue($userId,$IssueId);
+        $this->getIssueDao()->bindUserToIssue($userId,$IssueId);
+        return true;
     }
 
     protected function getIssueDao()
