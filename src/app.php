@@ -19,10 +19,10 @@ $app->register(new TwigServiceProvider());
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver'   => 'pdo_mysql',
-        'dbname'     => 'bug-world',
+        'dbname'     => 'mailant',
         'host'      => 'localhost',
         'user'      => 'root',
-        'password'  => '',
+        'password'  => 'root',
         'charset'   => 'utf8',
         'port'      => '3306'
     ),
