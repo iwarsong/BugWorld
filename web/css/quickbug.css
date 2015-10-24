@@ -114,10 +114,24 @@
 #issue-create-modal .issue-image .empty-text {
     position: absolute;
     display: block;
+    left: 50%;
+    top: 50%;
+    margin-left: -35px;
+    margin-top: -10px;
+    color: #aaa;
 }
-
 
 #issue-create-modal .issue-pri {
     text-align: center;
     margin: 15px 0;
 }
+
+#issue-create-modal .issue-image:hover {
+    border-color: #666;
+    background: #ddd;
+}
+#issue-create-modal .issue-image.pastable-focus {
+    border-color: #666;
+    background: #ddd;
+}
+

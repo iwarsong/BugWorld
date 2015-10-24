@@ -12,6 +12,44 @@ define(function(require, exports, module) {
 
     exports.run = function() {
 
+        var $modal = $('#issue-create-modal');
+
+        $('#issue-create-modal .issue-image').pastableNonInputable();
+
+        $('#issue-create-modal .issue-image')
+
+
+        $('#issue-create-modal').on('shown.bs.modal', function () {
+            console.log('show');
+            var html = "";
+            html += '<div class="issue-image" tabindex="1"><div class="empty-text">请粘贴图片</div></div>';
+            $modal.find('.issue-image-box').html(html);
+
+            $modal.find('.issue-image').pastableNonInputable();
+
+            $modal.find('.issue-image').on('pasteImage', function(ev, data) {
+                console.log('paste');
+
+                var blobUrl = URL.createObjectURL(data.blob);
+
+                var html = "";
+                html += '<a href="' + blobUrl + '" target="_blank" class="image-link">';
+                html += '  <img src="' + data.dataURL +'" class="img-responsive">';
+                html += '</a>';
+
+                $(this).html(html);
+
+            });
+
+        });
+
+        $('#issue-create-modal').on('hide.bs.modal', function () {
+            console.log('hide');
+            $modal.find('.issue-image').remove();
+            $modal.find('textarea').val('');
+
+        });
+
         // $('*').pastableNonInputable();
 
         // $('*').on('pasteImage', function(ev, data) {
