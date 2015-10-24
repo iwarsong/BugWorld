@@ -4,3 +4,5 @@
 composer.lock
 .idea
 /config/paramaters.php
+/web/upload/*
+!/web/upload/.gitkeep
