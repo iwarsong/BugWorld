@@ -104,7 +104,16 @@
 }
 
 #issue-create-modal .issue-image {
+    position: relative;
+    background: #eee;
+    border: 2px dashed #aaa;
 
+    min-height: 200px;
+}
+
+#issue-create-modal .issue-image .empty-text {
+    position: absolute;
+    display: block;
 }
 
 
