@@ -39,7 +39,9 @@
 
 {% block footer %}{% endblock %}
 
-  <div id="modal" class="modal" ></div>
+  <div id="issue-show-modal" class="modal" data-backdrop="false">
+    {% include 'default/issue-show-modal.html.twig' %}
+  </div>
 
   <script>
     var app = {};

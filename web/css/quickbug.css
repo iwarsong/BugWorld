@@ -66,3 +66,32 @@
 
     border-radius: 50%;
 }
+
+#issue-show-modal .modal-dialog {
+    width: 1200px;
+}
+
+#issue-show-modal .modal-content {
+    min-height: 500px;
+}
+
+.issue-show {
+
+}
+
+.issue-note {
+    color: #666;
+}
+
+.issue-show .issue-metas {
+    border-left: 2px solid #ccc;
+    padding-left: 15px;
+}
+
+.issue-show .issue-users {
+    margin-top: 15px;
+}
+
+.issue-show .issue-actions {
+    margin: 15px 0;
+}
