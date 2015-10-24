@@ -17,13 +17,15 @@ class DefaultController
             'status' => 'todo',
             'latest' => 'createdTime'
         );
+        $users = $this->getUserService()->findAllUsers();
 
         $orderBy = array('createdTime', 'DESC');
         $issues = $this->getIssueService()->searchIssues($conditions, $orderBy, 0, 100);
 
         return $app['twig']->render('default/index.html.twig', array(
             'issueStatus' => 'todo',
-            'issues' => $issues
+            'issues' => $issues,
+            'users' => $users
         ));
     }
 
@@ -63,14 +65,9 @@ class DefaultController
         };
 
         $user = $this->getUserService()->getUser($userId);
-        return $app->json('https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1150491410,2439285582&fm=58');
+        return $app->json($user['avatar']);
     }
 
-    // public function showUsers(Application $app, Request $request)
-    // {
-    //     $users = $this->getUserService()->findAllUsers();
-    //     return $app['twig']->r
-    // }
 
     private function processerSearchData($searchData){
         $conditions = array();

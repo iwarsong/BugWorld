@@ -11,6 +11,11 @@ class UserService extends BaseService
 		return $this->getUserDao()->findAllUsers();
 	}
 
+	public function getUser($userId)
+	{
+		return $this->getUserDao()->getUser($userId);
+	}
+
 	protected function getUserDao()
 	{
 		return $this->kernel()->dao('UserDao');

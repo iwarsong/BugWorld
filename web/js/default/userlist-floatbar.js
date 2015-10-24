@@ -41,7 +41,7 @@ define(function(require, exports, module) {
 	    })
 	    $(proxy).css('width', 50);
 	    $(proxy).css('height', 50);
-	    proxy.src = 'http://tp3.sinaimg.cn/1748374882/180/40020642911/1';
+	    proxy.src = 'avatar.png';
 	});
 
 });
