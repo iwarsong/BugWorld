@@ -14,7 +14,12 @@ $app['ImageController'] = $app->share(function() use ($app) {
     return new QuickBug\Controller\ImageController();
 });
 
+$app['IssueController'] = $app->share(function() use ($app) {
+    return new QuickBug\Controller\IssueController();
+});
+
 $app->get('/', 'DefaultController:indexAction')->bind('homepage');
+$app->post('/issue_create', 'IssueController:createAction')->bind('issue_create');
 $app->get('/issues/{status}', 'DefaultController:issuesAction')->bind('issues_status');
 $app->post('/image/upload', 'ImageController:uploadAction')->bind('image_upload');
 $app->post('/issue/bind', 'DefaultController:bindIssueAction')->bind('issue_bind');

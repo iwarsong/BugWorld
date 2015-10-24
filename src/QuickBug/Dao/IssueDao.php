@@ -8,6 +8,16 @@ class IssueDao extends BaseDao
 {
     protected $table = 'issue';
 
+    public function addIssue($issue)
+    {
+        $affected = $this->db()->insert($this->table, $issue);
+        if ($affected <= 0) {
+            throw $this->createDaoException('Insert issue error.', 51001);
+        }
+
+        return $this->getIssue($this->db()->lastInsertId());
+    }
+
     public function getIssue($id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE id = ? LIMIT 1";

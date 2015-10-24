@@ -61,7 +61,10 @@ define(function(require, exports, module) {
         issue.note = $modal.find('textarea').val();
         issue.priority = $modal.find('[name=priority]:checked').val();
 
-        console.log(issue);
+        $.post('/issue_create', issue, function(response) {
+            $modal.modal('hide');
+            console.log(response);
+        }, 'json');
 
     });
 });
