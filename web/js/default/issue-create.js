@@ -63,6 +63,9 @@ define(function(require, exports, module) {
 
         $.post('/issue_create', issue, function(response) {
             $modal.modal('hide');
+            $('.issues-status-todo-btn').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                $(this).removeClass('animated bounceIn');
+            });
             console.log(response);
         }, 'json');
 
