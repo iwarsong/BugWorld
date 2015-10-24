@@ -1,35 +1,35 @@
 <div class="row">
     <div class="col-md-12">
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-info active">
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> 待修复
+        <label class="btn btn-info issues-status {% if issueStatus == 'todo' %}active{% endif %}" data-sort="createdTime" data-url="{{ path('issues_status',{status:'todo'}) }}">
+          <input type="radio" name="options" id="option1"  autocomplete="off"  > 待修复
         </label>
-        <label class="btn btn-info">
-          <input type="radio" name="options" id="option2" autocomplete="off"> 修复中
+        <label class="btn btn-info issues-status {% if issueStatus == 'doing' %}active{% endif %}" data-sort="doingTime" data-url="{{ path('issues_status',{status:'doing'}) }}">
+          <input type="radio" name="options" id="option2"  autocomplete="off" > 修复中
         </label>
-        <label class="btn btn-info">
-          <input type="radio" name="options" id="option3" autocomplete="off"> 待验收
+        <label class="btn btn-info issues-status {% if issueStatus == 'done' %}active{% endif %}" data-sort="doneTime" data-url="{{ path('issues_status',{status:'done'}) }}">
+          <input type="radio" name="options" id="option3"  autocomplete="off" > 待验收
         </label>
-        <label class="btn btn-info">
-          <input type="radio" name="options" id="option3" autocomplete="off"> 验收中
+        <label class="btn btn-info issues-status {% if issueStatus == 'checking' %}active{% endif %}" data-sort="checkingTime" data-url="{{ path('issues_status',{status:'checking'}) }}">
+          <input type="radio" name="options" id="option3"  autocomplete="off" > 验收中
         </label>
-        <label class="btn btn-info">
-          <input type="radio" name="options" id="option3" autocomplete="off"> 已消灭
+        <label class="btn btn-info issues-status {% if issueStatus == 'finished' %}active{% endif %}" data-sort="finishedTime" data-url="{{ path('issues_status',{status:'finished'}) }}">
+          <input type="radio" name="options" id="option3"  autocomplete="off" > 已消灭
         </label>
       </div>
 
       <div class="pull-right">
-        <div class="checkbox pull-left" style="margin-right:15px; margin-top:15px;">
+        <div class="checkbox pull-left " style="margin-right:15px; margin-top:15px;">
           <label>
-            <input type="checkbox"> <span class="glyphicon glyphicon-user"></span>
+            <input type="checkbox" class="only-me"> <span class="glyphicon glyphicon-user"></span>
           </label>
         </div>
 
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-info active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> <span class="glyphicon glyphicon-info-sign"></span>
+          <label class="btn btn-info issues-sort-mode {% if sortMode|default('time') == 'priority' %}active{% endif %}" data-mode="priority">
+            <input type="radio" name="options" id="option1" autocomplete="off"> <span class="glyphicon glyphicon-info-sign"></span>
           </label>
-          <label class="btn btn-info">
+          <label class="btn btn-info issues-sort-mode {% if sortMode|default('time') == 'time' %}active{% endif %}" data-mode="time">
             <input type="radio" name="options" id="option2" autocomplete="off"> <span class="glyphicon glyphicon-time"></span>
           </label>
         </div>

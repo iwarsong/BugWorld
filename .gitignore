@@ -2,3 +2,4 @@
 /var/cache/*
 /var/logs/*
 composer.lock
+.idea
