@@ -17,7 +17,7 @@ $app['ImageController'] = $app->share(function() use ($app) {
 $app->get('/', 'DefaultController:indexAction')->bind('homepage');
 $app->get('/issues/{status}', 'DefaultController:issuesAction')->bind('issues_status');
 $app->post('/image/upload', 'ImageController:uploadAction')->bind('image_upload');
-
+$app->get('/issue/{id}', 'DefaultController:issueAction')->bind('issue');
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
