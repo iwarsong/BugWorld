@@ -73,11 +73,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `nickname`, `avatar`) VALUES
-(1, '李雷', '1.jpg'),
-(2, '韩梅梅', '2.jpg'),
-(3, '大雄', '3.jpg'),
-(4, '静香', '4.jpg'),
-(5, '叮当', '5.jpg');
+(1, '李雷', '/img/1.jpg'),
+(2, '韩梅梅', '/img/2.jpg'),
+(3, '大雄', '/img/3.png'),
+(4, '静香', '/img/4.png'),
+(5, '叮当', '/img/5.png');
 
 --
 -- Indexes for dumped tables
