@@ -66,3 +66,49 @@
 
     border-radius: 50%;
 }
+
+#issue-show-modal .modal-dialog {
+    width: 1200px;
+}
+
+#issue-show-modal .modal-content {
+    min-height: 500px;
+}
+
+.issue-show {
+
+}
+
+.issue-note {
+    color: #666;
+}
+
+.issue-show .issue-metas {
+    border-left: 2px solid #ccc;
+    padding-left: 15px;
+}
+
+.issue-show .issue-users {
+    margin-top: 15px;
+}
+
+.issue-show .issue-actions {
+    margin: 15px 0;
+}
+
+.issue-create-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -30px;
+}
+
+#issue-create-modal .issue-image {
+
+}
+
+
+#issue-create-modal .issue-pri {
+    text-align: center;
+    margin: 15px 0;
+}

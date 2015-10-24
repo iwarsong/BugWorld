@@ -36,10 +36,19 @@
 
   {% include 'userlist-floatbar.html.twig' %}
 
+  <div class="issue-create-btn">
+    <button class="btn btn-fab btn-raised btn-primary" data-toggle="modal" data-target="#issue-create-modal"><i class="mdi-content-add"></i></button>
+  </div>
 
 {% block footer %}{% endblock %}
 
-  <div id="modal" class="modal" ></div>
+  <div id="issue-show-modal" class="modal" data-backdrop="false">
+    {% include 'default/issue-show-modal.html.twig' %}
+  </div>
+
+  <div id="issue-create-modal" class="modal" data-backdrop="false">
+    {% include 'default/issue-create-modal.html.twig' %}
+  </div>
 
   <script>
     var app = {};
