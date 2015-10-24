@@ -10,7 +10,12 @@ $app['DefaultController'] = $app->share(function() use ($app) {
     return new QuickBug\Controller\DefaultController();
 });
 
+$app['ImageController'] = $app->share(function() use ($app) {
+    return new QuickBug\Controller\ImageController();
+});
+
 $app->get('/', 'DefaultController:indexAction')->bind('homepage');
+$app->post('/image/upload', 'ImageController:uploadAction')->bind('image_upload');
 
 
 $app->error(function (\Exception $e, $code) use ($app) {

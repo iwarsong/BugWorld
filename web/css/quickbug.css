@@ -1,0 +1,34 @@
+#main {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    right: 80px;
+    bottom: 0px;
+    overflow: scroll;
+}
+
+.bug-grid {
+    height: 250px;
+}
+
+.userlist-flotbar {
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    width: 80px;
+    bottom: 0px;
+    background: #fff;
+}
+
+.userlist-user {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.userlist-user img {
+    width: 50px;
+    height: 50px;
+    border: 0;
+
+    border-radius: 50%;
+}

@@ -1,6 +1,8 @@
 define(function(require, exports, module) {
     window.jQuery = window.$ = require('jquery');
     require('bootstrap');
+    require('bootstrap-material');
+    require('bootstrap-material-ripples');
 
     seajs.on('fetch', function(data) {
         if (data.uri) {

@@ -1,7 +1,131 @@
 {% extends "layout.html.twig" %}
 
-{% set script_controller = 'address/index' %}
+{% set script_controller = 'default/index' %}
 
 {% block main %}
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-info active">
+          <input type="radio" name="options" id="option1" autocomplete="off" checked> 待修复
+        </label>
+        <label class="btn btn-info">
+          <input type="radio" name="options" id="option2" autocomplete="off"> 修复中
+        </label>
+        <label class="btn btn-info">
+          <input type="radio" name="options" id="option3" autocomplete="off"> 待验收
+        </label>
+        <label class="btn btn-info">
+          <input type="radio" name="options" id="option3" autocomplete="off"> 验收中
+        </label>
+        <label class="btn btn-info">
+          <input type="radio" name="options" id="option3" autocomplete="off"> 已消灭
+        </label>
+      </div>
+
+      <div class="pull-right">
+        <div class="checkbox pull-left" style="margin-right:15px; margin-top:15px;">
+          <label>
+            <input type="checkbox"> <span class="glyphicon glyphicon-user"></span>
+          </label>
+        </div>
+
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-info active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> <span class="glyphicon glyphicon-info-sign"></span>
+          </label>
+          <label class="btn btn-info">
+            <input type="radio" name="options" id="option2" autocomplete="off"> <span class="glyphicon glyphicon-time"></span>
+          </label>
+        </div>
+
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-info">
+            <input type="radio" name="options" id="option2" autocomplete="off"> <span class="glyphicon glyphicon-th"></span>
+          </label>
+          <label class="btn btn-info active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> <span class="glyphicon glyphicon-th-large"></span>
+          </label>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+  <div class="row bug-grids">
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail bug-grid">
+        <img src="/banner.jpg">
+      </div>
+    </div>
+  </div>
+
+
   
 {% endblock %}

@@ -6,8 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}QuickBug{% endblock %}</title>
-  <link href="{{ app.request.basepath }}/css/bootstrap.css/3.2.0/bootstrap.css" rel="stylesheet" />
-  <link href="{{ app.request.basepath }}/css/adminui.css" rel="stylesheet" />
+  <link href="{{ app.request.basepath }}/css/bootstrap.css/3.2.5/css/bootstrap.css" rel="stylesheet" />
+  <link href="{{ app.request.basepath }}/css/bootstrap-material-design/css/roboto.css" rel="stylesheet" />
+  <link href="{{ app.request.basepath }}/css/bootstrap-material-design/css/material-fullpalette.css" rel="stylesheet" />
+  <link href="{{ app.request.basepath }}/css/bootstrap-material-design/css/ripples.css" rel="stylesheet" />
+
+
+
+  <link href="{{ app.request.basepath }}/css/quickbug.css" rel="stylesheet" />
 </head>
 
 {% set nav = nav|default(null) %}
@@ -23,12 +29,32 @@
     </div>
   </div>
 
-  <div class="container-fluid">
-    <div class="row">
-
-    </div><!-- /row -->
+  <div class="container-fluid" id="main">
+    {% block main %}{% endblock %}
   </div><!-- /container-fluid -->
   {% endblock %}
+
+  <div class="userlist-flotbar">
+    <div class="userlist-user">
+      <img src="/avatar.png">
+    </div>
+
+    <div class="userlist-user">
+      <img src="/avatar.png">
+    </div>
+
+    <div class="userlist-user">
+      <img src="/avatar.png">
+    </div>
+
+    <div class="userlist-user">
+      <img src="/avatar.png">
+    </div>
+
+    <div class="userlist-user">
+      <img src="/avatar.png">
+    </div>
+  </div>
 
 
 {% block footer %}{% endblock %}
