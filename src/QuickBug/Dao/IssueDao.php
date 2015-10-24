@@ -8,6 +8,12 @@ class IssueDao extends BaseDao
 {
     protected $table = 'issue';
 
+    public function getIssue($id)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE id = ? LIMIT 1";
+        return $this->db()->fetchAssoc($sql, array($id)) ?: null;
+    }
+
     public function searchCountIssues($conditions)
     {
         $this->filterStartLimit($start, $limit);

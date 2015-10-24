@@ -7,27 +7,27 @@
     </div>
 
     <div class="modal-body">
-      <div class="issue-image">
-        <img src="/banner.jpg">
-      </div>
+      <div class="issue-image-box"></div>
+
 
       <div class="issue-metas">
         <div class="issue-pri">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-warning btn-sm ">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked> 高
+              <input type="radio" name="priority" value="3" autocomplete="off" > 高
             </label>
             <label class="btn btn-primary btn-sm active">
-              <input type="radio" name="options" id="option2" autocomplete="off"> 中
+              <input type="radio" name="priority" value="2" autocomplete="off" checked> 中
             </label>
             <label class="btn btn-info btn-sm">
-              <input type="radio" name="options" id="option3" autocomplete="off"> 低
+              <input type="radio" name="priority" value="1" autocomplete="off"> 低
             </label>
           </div>
         </div>
 
         <div class="issue-note">
-          <textarea class="form-control" rows="2" placeholder="输入BUG的备注信息"></textarea>
+          <input type="hidden" name="image" value="">
+          <textarea name="note" class="form-control" rows="2" placeholder="输入BUG的备注信息"></textarea>
         </div>
 
       </div>
@@ -37,7 +37,7 @@
 
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-      <button type="button" class="btn btn-primary">创建</button>
+      <button type="button" class="btn btn-primary" id="issue-save-btn">创建</button>
     </div>
 
   </div>

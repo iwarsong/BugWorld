@@ -15,11 +15,12 @@ class ImageController
     {
         $file = $request->files->get('image');
 
-        $file->move('/tmp', 'bug.jpg');
+        $filename = time() . '-' . rand(10000, 99999) . '.jpg';
+        $directory = realpath(__DIR__ . '/../../../web/upload');
 
-        var_dump($file);exit();
+        $file->move($directory, $filename);
 
-
+        return $app->json(['image' => '/upload/' . $filename]);
     }
 
     protected function getAddressService()

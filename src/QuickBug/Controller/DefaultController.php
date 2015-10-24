@@ -27,6 +27,14 @@ class DefaultController
         ));
     }
 
+    public function issueAction(Application $app, Request $request, $id)
+    {
+        $issue = $this->getIssueService()->getIssue($id);
+        return $app['twig']->render('default/issue-show-modal.html.twig', array(
+            'issue' => $issue
+        ));
+    }
+
     public function issuesAction(Application $app, Request $request, $status)
     {
         $searchData = $request->query->all();

@@ -6,6 +6,11 @@ namespace QuickBug\Service;
 
 class IssueService extends BaseService
 {
+    public function getIssue($id)
+    {
+        return $this->getIssueDao()->getIssue($id);
+    }
+
     public function searchIssues($conditions, $orderBy, $start, $limit)
     {
         $orderBy = $this->convertOrderByByConditions($conditions);
