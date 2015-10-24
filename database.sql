@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `issue` (
   `projectId` int(10) unsigned NOT NULL,
   `image` varchar(128) NOT NULL,
   `note` text,
+  `priority` int(11) NOT NULL DEFAULT '1',
   `status` enum('todo','doing','done','checking','finished') NOT NULL DEFAULT 'todo',
   `doUserId` int(10) unsigned NOT NULL DEFAULT '0',
   `checkUserId` int(10) unsigned NOT NULL DEFAULT '0',
