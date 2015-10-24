@@ -1,7 +1,7 @@
 {% for issue in issues %}
   <div class="col-md-3">
     <div class="thumbnail issue-grid " data-id="{{ issue.id }}">
-      <img src="/banner.jpg" class="issue-image" >
+      <img src="/banner.jpg" class="issue-image" data-toggle="modal" data-target="#issue-show-modal">
       <div class="douser-avatar">
         <img src="/avatar.png">
       </div>
