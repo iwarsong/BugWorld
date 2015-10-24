@@ -16,6 +16,8 @@ class IssueController
         $issue = $request->request->all();
 
         $issue['projectId'] = 1;
+        $issue['createdUserId'] = 1;
+        $issue['createdTime'] = time();
 
         $issue = $this->getIssueService()->addIssue($issue);
 
