@@ -1,0 +1,52 @@
+{% import "macro.html.twig" as web_macro %}
+<!DOCTYPE html>
+<html class="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}QuickBug{% endblock %}</title>
+  <link href="{{ app.request.basepath }}/css/bootstrap.css/3.2.0/bootstrap.css" rel="stylesheet" />
+  <link href="{{ app.request.basepath }}/css/adminui.css" rel="stylesheet" />
+</head>
+
+{% set nav = nav|default(null) %}
+
+<body>
+  {% block body %}
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">QuickBug</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+    </div><!-- /row -->
+  </div><!-- /container-fluid -->
+  {% endblock %}
+
+
+{% block footer %}{% endblock %}
+
+  <div id="modal" class="modal" ></div>
+
+  <script>
+    var app = {};
+    app.asset_version = {{ app.asset_version }};
+    {% if script_controller is defined %}
+      app.controller = '{{ script_controller }}';
+    {% endif %}
+  </script>
+  <script src="{{ app.request.basepath }}/jslib/seajs/2.3.0/dist/sea.js" id="seajsnode"></script>
+  <script src="{{ app.request.basepath }}/jslib/seajs/seajs-style/1.0.2/seajs-style.js"></script>
+  <script src="{{ app.request.basepath }}/jslib/seajs-global-config.js"></script>
+  <script>
+    seajs.use("{{ app.request.basepath }}/js/app.js");
+  </script>
+</body>
+</html>

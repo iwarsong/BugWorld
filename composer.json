@@ -1,0 +1,24 @@
+{
+    "name": "quickbug",
+    "description": "Quick Bug.",
+    "autoload": {
+        "psr-0": { 
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Wellming Li",
+            "email": "wellming.li@howzhi.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "v1.3.4",
+        "doctrine/dbal": "2.5.2",
+        "twig/twig": "1.22.2",
+        "monolog/monolog": "1.17.1",
+        "symfony/twig-bridge": "2.7.5",
+        "symfony/console": "2.7.5",
+        "robmorgan/phinx": "0.4.6"
+    }
+}
