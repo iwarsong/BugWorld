@@ -1,13 +1,14 @@
-README
-=====
+# README
 
+
+```
 server {
     listen 80;
-    server_name quickbug.dev;
-    root /var/www/quickbug/web;
+    server_name bugworld.dev;
+    root /var/www/bugworld/web;
 
-    access_log /var/log/nginx/quickbug.access.log;
-    error_log /var/log/nginx/quickbug.error.log;
+    access_log /var/log/nginx/bugworld.access.log;
+    error_log /var/log/nginx/bugworld.error.log;
 
     location / {
         index index.php;
@@ -38,3 +39,4 @@ server {
         expires 3y;
     }
 }
+```
