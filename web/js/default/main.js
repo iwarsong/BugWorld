@@ -81,9 +81,8 @@ define(function(require, exports, module) {
     var Keypress = require('keypress');
     var issueModal = new IssueModal();
 
-    $('.issue-image').on('click', function(){
-        var $this = $(this);
-        var $issueGrid = $this.parent('.issue-grid');
+    $('.bug-grids').on('click', '.issue-grid', function(){
+        var $issueGrid = $(this);
         issueModal.setGrid($issueGrid);
 
         var listener = new Keypress.Listener();
@@ -111,6 +110,32 @@ define(function(require, exports, module) {
             $.get($grid.children('.issue-image').data('url'), {id:$grid.data('id')}, function(html){
                 $('#issue-show-modal').html(html);
             });
+        });
+    });
+
+    $('.bug-grids').on('click', '.issue-btn',function(){
+        var $this = $(this);
+        var $grid = $this.parent().parent().parent();
+        var issueId = $this.parent().parent().data('id');
+
+        $.ajax({
+            type:'POST',
+            url:$this.data('url'),
+            data:{userId:1,issueId:issueId},
+            success: function(result){
+                if(result.status != 'todo'){
+                    console.log('remove');
+                    $grid.addClass('animated zoomOut').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        $grid.remove();
+                    });
+                }else{
+                    var img_src = $('#user-' + result.doUserId + '-img').attr('src');
+                    var html = "<img src=\"" + img_src + "\">";
+                    $grid.find('.douser-avatar').html(html);
+                    $grid.find('.issue-btn').html('修');
+                }
+            },
+            dataType: "json"
         });
     });
 

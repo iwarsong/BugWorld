@@ -27,10 +27,9 @@ class IssueService extends BaseService
         return $this->getIssueDao()->searchCountIssues($conditions);
     }
 
-    public function bindUserToIssue($userId,$IssueId)
+    public function updateIssue($issueId, $fields)
     {
-        $this->getIssueDao()->bindUserToIssue($userId,$IssueId);
-        return true;
+        return $this->getIssueDao()->updateIssue($issueId, $fields);
     }
 
     protected function getIssueDao()

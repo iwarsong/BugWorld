@@ -66,14 +66,62 @@ class DefaultController
 
         $userId = $data['userId'];
         $issueId = $data['issueId'];
-        if(!$this->getIssueService()->bindUserToIssue($userId,$issueId)){
-            return $app->json(false);
-        };
 
-        $user = $this->getUserService()->getUser($userId);
-        return $app->json($user['avatar']);
+        $issue = $this->getIssueService()->getIssue($issueId);
+
+        $fields = $this->getFieldsByDataAndIssueId($data, $issue['id']);
+
+        if(empty($fields)){
+            return $app->json(false);
+        }
+        
+        $issue = $this->getIssueService()->updateIssue($issue['id'], $fields);
+
+        return $app->json($issue);
     }
 
+    private function getFieldsByDataAndIssueId($data, $issueId)
+    {
+        $fields = array();
+        $userId = $data['userId'];
+        $issue = $this->getIssueService()->getIssue($issueId);
+        switch($issue['status']){
+            case 'todo':
+                if($userId == $issue['doUserId']){
+                    $fields = array(
+                        'status' => 'doing',
+                        'doingTime' => time()
+                    );
+                }else{
+                    $fields = array(
+                        'doUserId' => $userId
+                    );
+                }
+                break;
+            case 'doing':
+                $fields = array(
+                    'status' => 'done',
+                    'doneTime' => time()
+                );
+                break;
+            case 'done':
+                $fields = array(
+                    'status' => 'checking',
+                    'checkingTime' => time()
+                );
+                break;
+            case 'checking':
+                $fields = array(
+                    'checkUserId' => $userId,
+                    'status' => 'finished',
+                    'finishedTime' => time()
+                );
+                break;
+            default:
+                break;
+        }
+        return $fields;
+    }
 
     private function processerSearchData($searchData){
         $conditions = array();
@@ -92,6 +140,7 @@ class DefaultController
 
         if(!empty($searchData['sortMode']) && $searchData['sortMode'] == 'priority'){
             $conditions['orderByPriority'] = true;
+            unset($conditions['latest']);
         }
 
         return $conditions;

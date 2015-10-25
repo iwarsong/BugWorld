@@ -19,15 +19,17 @@
       <div class="mask">
         {% set issueStatus = issue.status %}
         {% if issueStatus == 'todo' %}
-          <button class="btn btn-primary issue-btn">领</button>
+          {% if issue.doUserId == 1 %}
+            <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}">修</button>
+          {% else %}
+            <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}">领</button>
+          {% endif %}
         {% elseif issueStatus == 'doing' %}
-          <button class="btn btn-primary">修</button>
+          <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}">已修</button>
         {% elseif issueStatus == 'done' %}
-          <button class="btn btn-primary">已修</button>
+          <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}">验收</button>
         {% elseif issueStatus == 'checking' %}
-          <button class="btn btn-primary">验收</button>
-        {% elseif issueStatus == 'finished' %}
-          <button class="btn btn-primary">已验</button>
+          <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}">已验</button>
         {% endif %}
       </div>
     </div>
