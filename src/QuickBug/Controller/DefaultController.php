@@ -74,7 +74,7 @@ class DefaultController
         if(empty($fields)){
             return $app->json(false);
         }
-        
+
         $issue = $this->getIssueService()->updateIssue($issue['id'], $fields);
 
         return $app->json($issue);
