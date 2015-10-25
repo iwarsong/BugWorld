@@ -20,8 +20,10 @@ class IssueController
         $issue['createdTime'] = time();
 
         $issue = $this->getIssueService()->addIssue($issue);
-
-        return $app->json($issue);
+        $issues = array($issue);
+        return $app['twig']->render('default/issue-grid.html.twig',array(
+            'issues' => $issues
+        ));
     }
 
     protected function getIssueService()

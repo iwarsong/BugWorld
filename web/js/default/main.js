@@ -8,6 +8,7 @@ define(function(require, exports, module) {
         this.callback = function(html){
             $('.bug-grids').html(html);
             $('.bug-grids').trigger('issuesIsRefresh', true);
+
         };
         this.search = function(method, url, callback){
             if(!method in ['POST', 'GET']){
@@ -37,6 +38,8 @@ define(function(require, exports, module) {
         var $this = $(this);
         var sort = $this.data('sort');
         var url = $this.data('url');
+        var splitedUrl = url.split('/');
+        $('#current-issue-status').val(splitedUrl[2]);
         searchIssues.sort = sort;
         searchIssues.url = url;
         search('GET');
@@ -110,10 +113,5 @@ define(function(require, exports, module) {
             });
         });
     });
-
-
-
-
-
 
 });
