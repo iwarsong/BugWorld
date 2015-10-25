@@ -10,7 +10,21 @@
 .issue-grid {
     /*height: 250px;*/
     position: relative;
+    max-height: 200px;
+    min-height: 200px;
 }
+
+.issue-grid .issue-id {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.issue-grid .issue-id .btn {
+    margin: 4px;
+    padding: 3px 10px;
+}
+
 
 .issue-grid .douser-avatar {
     position: absolute;
@@ -25,6 +39,7 @@
 }
 
 .issue-grid .issue-image {
+    max-height: 190px;
     /*height: 250px;*/
 }
 

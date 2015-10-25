@@ -1,7 +1,16 @@
 {% for issue in issues %}
   <div class="col-md-3">
     <div class="thumbnail issue-grid" data-id="{{ issue.id }}">
-      <img src="{{ issue.image }}" class="issue-image" data-url="{{ path('issue', {id:issue.id}) }}" data-toggle="modal" data-target="#issue-show-modal">
+      <img src="{{ issue.image }}" class="issue-image img-responsive" data-url="{{ path('issue', {id:issue.id}) }}" data-toggle="modal" data-target="#issue-show-modal">
+      <div class="issue-id">
+        {% if issue.priority == '3' %}
+          <button class="btn btn-material-deep-orange" title="优先级：高"># {{ issue.id }}</button>
+        {% elseif issue.priority == '2' %}
+          <button class="btn btn-material-blue" title="优先级：中"># {{ issue.id }}</button>
+        {% elseif issue.priority == '1' %}
+          <button class="btn btn-material-indigo-100" title="优先级：低"># {{ issue.id }}</button>
+        {% endif %}
+      </div>
       <div class="douser-avatar">
         {% if issue.doUserId %}
           <img src="{{ users[issue.doUserId].avatar }}">
