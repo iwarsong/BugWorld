@@ -65,8 +65,8 @@ define(function(require, exports, module) {
             $modal.modal('hide');
             if($('#current-issue-status').val() == 'todo'){
                 $('.bug-grids').prepend(html);
-                $('.bug-grids').children('.col-md-3').first().addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                    $(this).removeClass('animated bounceIn');
+                $('.bug-grids').children('.col-md-3').first().addClass('animated jello').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                    $(this).removeClass('animated jello');
                 });
             }else{
                 $('.issues-status-todo-btn').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
