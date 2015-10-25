@@ -10,6 +10,8 @@
 .issue-grid {
     /*height: 250px;*/
     position: relative;
+    max-height: 200px;
+    min-height: 200px;
 }
 
 .issue-grid .douser-avatar {
@@ -25,6 +27,7 @@
 }
 
 .issue-grid .issue-image {
+    max-height: 190px;
     /*height: 250px;*/
 }
 
