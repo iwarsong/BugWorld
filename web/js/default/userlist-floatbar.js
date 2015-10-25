@@ -16,7 +16,8 @@ define(function(require, exports, module) {
 
 		// dataTransfer为拖放数据，传输信息
 		dnd.on('dragstart', function(dataTransfer, proxy){
-			dataTransfer.data = dnd.element;
+		;
+			// console.log(dataTransfer.data);
 		});
 		dnd.on('dragenter', function(proxy, drop){
 			// drop.addClass('over') ;
@@ -36,6 +37,9 @@ define(function(require, exports, module) {
 				success: function(src){
 					var html = "\<img src=\"" +src +  "\">";
 					drop.find('.douser-avatar').html(html);
+					drop.find('.douser-avatar').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                		$(this).removeClass('animated bounceIn');
+            		});
 				},
 				dataType: "json"
 			});
@@ -44,7 +48,7 @@ define(function(require, exports, module) {
 	});
 	$(proxy).css('width', 50);
 	$(proxy).css('height', 50);
-	proxy.src = 'avatar.png';
+	proxy.src = 'move.svg';
 
 
 });
