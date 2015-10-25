@@ -48,7 +48,7 @@ define(function(require, exports, module) {
 	});
 	$(proxy).css('width', 50);
 	$(proxy).css('height', 50);
-	proxy.src = 'avatar.png';
+	proxy.src = 'move.svg';
 
 
 });

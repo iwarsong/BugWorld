@@ -1,8 +1,8 @@
 
 <div class="userlist-flotbar">
 {% for user in users %}
-  <div class="userlist-user" data-id="{{ user.id }}" data-dnd="{{ user.avatar }}" data-nickname="{{ user.nickname }}" data-url="{{ path('issue_bind') }}">
-    <img src="{{ user.avatar }}">
+  <div class="userlist-user" data-id="{{ user.id }}" data-nickname="{{ user.nickname }}" data-url="{{ path('issue_bind') }}">
+    <img data-toggle = "tooltip" src="{{ user.avatar }}" data-toggle="tooltip" data-placement="top" title="{{ user.nickname }}">
   </div>
 {% endfor %}
 </div>
