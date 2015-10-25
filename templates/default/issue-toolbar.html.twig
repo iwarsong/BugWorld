@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-md-12">
       <div class="btn-group" data-toggle="buttons">
+        <input type="hidden" id="current-issue-status" value="{{ issueStatus }}">
         <label class="btn btn-info issues-status issues-status-todo-btn {% if issueStatus == 'todo' %}active{% endif %}" data-sort="createdTime" data-url="{{ path('issues_status',{status:'todo'}) }}">
           <input type="radio" name="options" id="option1"  autocomplete="off"  > 待修复
         </label>

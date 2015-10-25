@@ -61,13 +61,19 @@ define(function(require, exports, module) {
         issue.note = $modal.find('textarea').val();
         issue.priority = $modal.find('[name=priority]:checked').val();
 
-        $.post('/issue_create', issue, function(response) {
+        $.post('/issue_create', issue, function(html) {
             $modal.modal('hide');
-            $('.issues-status-todo-btn').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                $(this).removeClass('animated bounceIn');
-            });
-            console.log(response);
-        }, 'json');
+            if($('#current-issue-status').val() == 'todo'){
+                $('.bug-grids').prepend(html);
+                $('.bug-grids').children('.col-md-3').first().addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                    $(this).removeClass('animated bounceIn');
+                });
+            }else{
+                $('.issues-status-todo-btn').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                    $(this).removeClass('animated bounceIn');
+                });
+            }
+        });
 
     });
 });
