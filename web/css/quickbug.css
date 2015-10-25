@@ -135,3 +135,31 @@
     background: #ddd;
 }
 
+.container-fluid {
+    position: relative;
+}
+
+.navbar .navbar-brand {
+    font-size: 24px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -45px !important;
+    opacity: 0.25;
+    text-shadow:   
+    -1px -1px 1px #666,  
+    2px 2px 1px #363636; 
+}
+
+.navbar-user {
+    margin: 12px 10px 0 0;
+}
+
+.navbar-user img {
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.navbar-user .dropdown >a {
+    color: #eee;
+}
