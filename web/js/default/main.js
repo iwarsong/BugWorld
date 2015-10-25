@@ -80,12 +80,15 @@ define(function(require, exports, module) {
 
     var Keypress = require('keypress');
     var issueModal = new IssueModal();
-
+    var keyborad_listener = undefined;
     $('.bug-grids').on('click', '.issue-grid', function(){
         var $issueGrid = $(this);
         issueModal.setGrid($issueGrid);
-
+        if(keyborad_listener !== undefined){
+            keyborad_listener.destroy();
+        }
         var listener = new Keypress.Listener();
+
         listener.simple_combo('left', function(){
             var lastGrid = issueModal.getLastGrid();
             if(lastGrid.length == 0){
@@ -111,7 +114,11 @@ define(function(require, exports, module) {
                 $('#issue-show-modal').html(html);
             });
         });
+
+        keyborad_listener = listener;
     });
+
+
 
     $('.bug-grids').on('click', '.issue-btn',function(){
         var $this = $(this);
@@ -133,6 +140,9 @@ define(function(require, exports, module) {
                     var html = "<img src=\"" + img_src + "\">";
                     $grid.find('.douser-avatar').html(html);
                     $grid.find('.issue-btn').html('修');
+                    $grid.find('.douser-avatar').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        $(this).removeClass('animated bounceIn');
+                    });
                 }
             },
             dataType: "json"
