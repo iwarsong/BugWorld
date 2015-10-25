@@ -14,6 +14,18 @@
     min-height: 200px;
 }
 
+.issue-grid .issue-id {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.issue-grid .issue-id .btn {
+    margin: 4px;
+    padding: 3px 10px;
+}
+
+
 .issue-grid .douser-avatar {
     position: absolute;
     top: 10px;
