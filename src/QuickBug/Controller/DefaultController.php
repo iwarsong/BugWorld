@@ -2,6 +2,7 @@
 
 namespace QuickBug\Controller;
 
+use QuickBug\Common\ArrayToolkit;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
@@ -21,7 +22,7 @@ class DefaultController
 
         $orderBy = array('createdTime', 'DESC');
         $issues = $this->getIssueService()->searchIssues($conditions, $orderBy, 0, 100);
-
+        $users = ArrayToolkit::index($users, 'id');
         return $app['twig']->render('default/index.html.twig', array(
             'issueStatus' => 'todo',
             'issues' => $issues,
@@ -32,8 +33,11 @@ class DefaultController
     public function issueAction(Application $app, Request $request, $id)
     {
         $issue = $this->getIssueService()->getIssue($id);
+        $users = $this->getUserService()->findAllUsers();
+        $users = ArrayToolkit::index($users, 'id');
         return $app['twig']->render('default/issue-show-modal.html.twig', array(
-            'issue' => $issue
+            'issue' => $issue,
+            'users' => $users
         ));
     }
 
@@ -46,11 +50,13 @@ class DefaultController
 
         $orderBy = array('createdTime', 'DESC');
         $issues = $this->getIssueService()->searchIssues($conditions, $orderBy, 0, 100);
-
+        $users = $this->getUserService()->findAllUsers();
+        $users = ArrayToolkit::index($users, 'id');
         return $app['twig']->render('default/issue-grid.html.twig', array(
             'issueStatus' => $status,
             'issues' => $issues,
-            'sortMode' => !empty($searchData['sortMode'])?$searchData['sortMode']:'time'
+            'sortMode' => !empty($searchData['sortMode'])?$searchData['sortMode']:'time',
+            'users' => $users
         ));
     }
 

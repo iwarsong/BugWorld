@@ -7,6 +7,7 @@ define(function(require, exports, module) {
         this.url = '/issues/todo';
         this.callback = function(html){
             $('.bug-grids').html(html);
+            $('.bug-grids').trigger('issuesIsRefresh', true);
         };
         this.search = function(method, url, callback){
             if(!method in ['POST', 'GET']){
@@ -26,7 +27,7 @@ define(function(require, exports, module) {
     }
 
     var searchIssues = new SearchIssues();
-
+    $('.bug-grids').trigger('issuesIsRefresh', true);
     $('.only-me').on('click',function(){
         searchIssues.isOnlyMe = !searchIssues.isOnlyMe;
         search('GET');

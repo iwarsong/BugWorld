@@ -18,7 +18,7 @@
     <div class="modal-body">
       <div class="row issue-show">
         <div class="col-md-9 issue-modal-image">
-          <img src="/banner.jpg">
+          <img src="{{ issue.image }}">
         </div>
         <div class="col-md-3">
           <div class="issue-metas">
@@ -30,43 +30,44 @@
 
               <div class="media">
                 <div class="media-left">
-                  <img class="media-object" src="/avatar.png" width="40" height="40">
+                  <img class="media-object" src="{{ users[issue.createdUserId].avatar }}" width="40" height="40">
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">
                     <small class="pull-right text-info">报告人</small>
-                    <small><strong>李雷</strong></small>
+                    <small><strong>{{ users[issue.createdUserId].nickname }}</strong></small>
                   </h4>
                   <small class="text-muted">{{ issue.createdTime|date('Y-m-d h:i:s') }}</small>
                 </div>
               </div>
-
-              <div class="media">
-                <div class="media-left">
-                  <img class="media-object" src="/avatar.png" width="40" height="40">
+              {% if issue.doUserId %}
+                <div class="media">
+                  <div class="media-left">
+                    <img class="media-object" src="{{ users[issue.doUserId].avatar }}" width="40" height="40">
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">
+                      <small class="pull-right text-primary">解决人</small>
+                      <small><strong>{{ users[issue.doUserId].nickname }}</strong></small>
+                    </h4>
+                    <small class="text-muted">{{ issue.doingTime|date('Y-m-d h:i:s') }}</small>
+                  </div>
                 </div>
-                <div class="media-body">
-                  <h4 class="media-heading">
-                    <small class="pull-right text-primary">解决人</small>
-                    <small><strong>李雷</strong></small>
-                  </h4>
-                  <small class="text-muted">{{ issue.doingTime|date('Y-m-d h:i:s') }}</small>
+              {% endif %}
+              {% if issue.checkUserId %}
+                <div class="media">
+                  <div class="media-left">
+                    <img class="media-object" src="{{ users[issue.checkUserId].avatar }}" width="40" height="40">
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">
+                      <small class="pull-right text-muted">验收人</small>
+                      <small><strong>{{ users[issue.checkUserId].nickname }}</strong></small>
+                    </h4>
+                    <small class="text-muted">{{ issue.checkingTime|date('Y-m-d h:i:s') }}</small>
+                  </div>
                 </div>
-              </div>
-
-              <div class="media">
-                <div class="media-left">
-                  <img class="media-object" src="/avatar.png" width="40" height="40">
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">
-                    <small class="pull-right text-muted">验收人</small>
-                    <small><strong>李雷</strong></small>
-                  </h4>
-                  <small class="text-muted">{{ issue.checkingTime|date('Y-m-d h:i:s') }}</small>
-                </div>
-              </div>
-
+              {% endif %}
             </div>
 
             <div class="issue-actions text-center">

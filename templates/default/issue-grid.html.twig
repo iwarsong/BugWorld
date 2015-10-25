@@ -1,9 +1,11 @@
 {% for issue in issues %}
   <div class="col-md-3">
     <div class="thumbnail issue-grid" data-id="{{ issue.id }}">
-      <img src="/banner.jpg" class="issue-image" data-url="{{ path('issue', {id:issue.id}) }}" data-toggle="modal" data-target="#issue-show-modal">
+      <img src="{{ issue.image }}" class="issue-image" data-url="{{ path('issue', {id:issue.id}) }}" data-toggle="modal" data-target="#issue-show-modal">
       <div class="douser-avatar">
-
+        {% if issue.doUserId %}
+          <img src="{{ users[issue.doUserId].avatar }}">
+        {% endif %}
       </div>
       <div class="mask">
         {% set issueStatus = issue.status %}
