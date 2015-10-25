@@ -37,6 +37,7 @@ class IssueDao extends BaseDao
     public function searchIssues($conditions, $orderBy, $start, $limit)
     {
         $this->filterStartLimit($start, $limit);
+
         $builder = $this->_createSearchQueryBuilder($conditions)
             ->select('*')
             ->orderBy($orderBy[0], $orderBy[1])
@@ -47,9 +48,10 @@ class IssueDao extends BaseDao
         return $builder->execute()->fetchAll() ? : array();
     }
 
-    public function bindUserToIssue($userId,$issueId)
+    public function updateIssue($issueId, $fields)
     {
-        $this->db()->update($this->table, array('doUserId'=>$userId), array('id' => $issueId));
+        $this->db()->update($this->table, $fields, array('id' => $issueId));
+        return $this->getIssue($issueId);
     }
 
     protected function _createSearchQueryBuilder($conditions)
