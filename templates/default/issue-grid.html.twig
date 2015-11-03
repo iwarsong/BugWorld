@@ -29,7 +29,7 @@
         {% elseif issueStatus == 'done' %}
           <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}">验收</button>
         {% elseif issueStatus == 'checking' %}
-          <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}">打回</button>
+          <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}" data-rollback="true">打回</button>
           <button class="btn btn-primary issue-btn" data-url="{{ path('issue_bind') }}">已验</button>
         {% endif %}
       </div>

@@ -124,11 +124,14 @@ define(function(require, exports, module) {
         var $this = $(this);
         var $grid = $this.parent().parent().parent();
         var issueId = $this.parent().parent().data('id');
-
+        var data = {userId:1,issueId:issueId};
+        if($this.data('rollback') !== undefined){
+            data = $.extend(data, {issueRollback:true});
+        }
         $.ajax({
             type:'POST',
             url:$this.data('url'),
-            data:{userId:1,issueId:issueId},
+            data:data,
             success: function(result){
                 if(result.status != 'todo'){
                     console.log('remove');

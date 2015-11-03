@@ -64,7 +64,7 @@ class DefaultController
     {
         $data = $request->request->all();
 
-        $userId = $data['userId'];
+        //$userId = $data['userId'];
         $issueId = $data['issueId'];
 
         $issue = $this->getIssueService()->getIssue($issueId);
@@ -116,6 +116,9 @@ class DefaultController
                     'status' => 'finished',
                     'finishedTime' => time()
                 );
+                if(isset($data['issueRollback']) && $data['issueRollback']){
+                    $fields['status'] = 'doing';
+                }
                 break;
             default:
                 break;
